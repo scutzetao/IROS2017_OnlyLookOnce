@@ -24,7 +24,7 @@ run matlab/vl_setupnn ;
 
 - Clone this repo:
 ```
-git clone 
+git clone https://github.com/scutzetao/IROS2017_OnlyLookOnce.git
 ```
 
 
