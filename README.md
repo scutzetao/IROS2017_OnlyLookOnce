@@ -27,6 +27,11 @@ run matlab/vl_setupnn ;
 git clone https://github.com/scutzetao/IROS2017_OnlyLookOnce.git
 ```
 
+- On the matlab command line, run the following command:
+```
+demo.m
+```
+
 
 
 
