@@ -6,7 +6,7 @@ This repository contains code for our IROS 2017 paper "Only look once, mining di
 - Matlab 2016b (the other versions not tested);
 
 ## Getting Started
-- Install MatConvNet from the http://www.vlfeat.org/matconvnet/quick/ or simply follow the following commands:
+- Install MatConvNet from the http://www.vlfeat.org/matconvnet/quick/ or simply follow the following commands on the Matlab Windows before executing the other script:
 ```
 % Install and compile MatConvNet (needed once).
 untar('http://www.vlfeat.org/matconvnet/download/matconvnet-1.0-beta25.tar.gz') ;
