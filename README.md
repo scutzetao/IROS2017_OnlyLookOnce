@@ -15,8 +15,8 @@ run matlab/vl_compilenn ;
 
 % Download a pre-trained CNN from the web (needed once).
 urlwrite(...
-  'http://www.vlfeat.org/matconvnet/models/imagenet-vgg-f.mat', ...
-  'imagenet-vgg-f.mat') ;
+  'http://www.vlfeat.org/matconvnet/models/imagenet-vgg-m-1024.mat', ...
+  'imagenet-vgg-m-1024.mat') ;
 
 % Setup MatConvNet.
 run matlab/vl_setupnn ;
