@@ -1,7 +1,7 @@
 function [output] = encode_feat(feat,mask)
 %Function Description: extract clustered features from 'feat' and 'mask';
-% feat: an input conv feat like 256*56*56, to be pooled using mask
-% mask: an input conv feat like 256*56*56, used for pooling
+% feat: an input conv feat like 512*14*14, to be pooled using mask
+% mask: an input conv feat like 512*14*14, used for pooling
 % output: an output matrix to represent the image
 
     woff = 0;
@@ -13,7 +13,7 @@ function [output] = encode_feat(feat,mask)
     whichmask = [];
     
     for mask_idx = 1:size(mask,1)
-        temp_mask = squeeze(mask(mask_idx,:,:)); % temp_mask: a 56*56 matrix
+        temp_mask = squeeze(mask(mask_idx,:,:)); % temp_mask: a 14*14 matrix
         
         % a binary mask, where all non-zero elements in temp_mask are set to 1
         binary_mask = im2bw(temp_mask,min(min(temp_mask))); 
@@ -62,21 +62,22 @@ function [output] = encode_feat(feat,mask)
         % the mask used for pooling
         pool_mask = temp_mask((region(2):region(2)+region(4)-1),region(1):(region(1)+region(3)-1));
         
-        if(woff == 0)
-            ww = warning('query','last');
-            idd = ww.identifier;
-            warning('off',idd);
-            woff = 1;
-        end
+%         if(woff == 0)
+%             ww = warning('query','last');
+%             idd = ww.identifier;
+%             warning('off',idd);
+%             woff = 1;
+%         end
         
         % flatten the feature
         pool_feat = reshape(pool_feat,size(pool_feat,1),[]);
         
         % flatten and normalize the mask
-        flatten_pool = flatten(pool_mask);
+        flatten_pool = pool_mask(:);
+        
         flatten_pool = flatten_pool/norm(flatten_pool);
         
-        % perform feature pooling, this is a 256*1 feature
+        % perform feature pooling, this is a 512*1 feature
         pool_multi = pool_feat*flatten_pool; 
         
         % perform l2_normalization again
@@ -85,7 +86,7 @@ function [output] = encode_feat(feat,mask)
             pool_multi = pool_multi./temp_norm;
         end
         
-        % a matrix with 256*num_pool, where each column is a l2_normalize vector representing a region and there are num_pool regions.
+        % a matrix with 512*num_pool, where each column is a l2_normalize vector representing a region and there are num_pool regions.
         output = [output pool_multi];
     end
 

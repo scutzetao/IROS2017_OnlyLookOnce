@@ -51,14 +51,10 @@ end
     [t_value,t_index] = min(testdist); % t_index is the index of the assignment words
     [r_value,r_index] = min(referdist); % r_index is the index of the assignment words
         
-    %row_value(nonzero) = row_value(nonzero).*(log10(totalimg./wordcnt(t_index)))';
     row_value(nonzero) = (row_value(nonzero).*(log10(totalimg./wordcnt(t_index)))').*(log10(totalimg./wordcnt(r_index)))';
-        
-    %mutual_cellarray{test_idx,reference_idx} = mutual_matrix;
         
     score = sum(row_value)/mask_channel; % calculate the average matching score, may replace 'mutual' by 'mask_channel' to encourage more mutual (but maybe less similar) matches.
         
-    %matchscore = 1 - match_score;
 
 
 end
