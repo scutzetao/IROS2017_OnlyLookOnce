@@ -1,6 +1,7 @@
 # IROS2017_OnlyLookOnce
 This repository contains code for our IROS 2017 paper "Only look once, mining distinctive landmarks from convnet for visual place recognition" by Zetao Chen, Fabiola Maffra, Inkyu Sa, Margarita Chli. https://ieeexplore.ieee.org/document/8202131
 
+![result_image](result_images/result.png)
 ## Setup
 - Linux or Windows;
 - Matlab 2016b (the other versions not tested);
