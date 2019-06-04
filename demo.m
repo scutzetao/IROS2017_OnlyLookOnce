@@ -28,12 +28,12 @@ img2 = img2 - net.meta.normalization.averageImage ;
 res1 = vl_simplenn(net, img1) ;
 res2 = vl_simplenn(net, img2) ;
 
-feat1 = res1(14).x; % 13*13*512
+feat1 = res1(13).x; % 13*13*512
 feat1 = permute(feat1,[3 1 2]); %512*13*13;
 mask1 = res1(15).x; % 13*13*512
 mask1 = permute(mask1,[3 1 2]); % 512*13*13
 
-feat2 = res2(14).x; % 13*13*512
+feat2 = res2(13).x; % 13*13*512
 feat2 = permute(feat2,[3 1 2]); %512*13*13;
 mask2 = res2(15).x; % 13*13*512
 mask2 = permute(mask2,[3 1 2]); % 512*13*13
